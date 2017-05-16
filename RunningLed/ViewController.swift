@@ -42,17 +42,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btn_draw(_ sender: Any) {
-        
         resetDraw()
         drawBall()
-        
         topLeft = -1
         topRight = n
         bottomRight = n*n-1
         bottomLeft = n*n-n
+
+        print(topLeft)
+        print(topRight)
+        print(bottomRight)
+        print(bottomLeft)
+
         timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(runningLed), userInfo: nil, repeats: true)
-        
-        
+
     }
     func stopTimer(){
         timer.invalidate()
@@ -61,6 +64,7 @@ class ViewController: UIViewController {
     func end(){
         if abs(bottomLeft - topRight) == 1 {
             stopTimer()
+
         }
     }
     
@@ -165,6 +169,7 @@ class ViewController: UIViewController {
         n = Int(tf_draw.text!)!
         var count = 0
         
+        
         for indexCot in 0..<n{
             for indexHang in 0..<n{
                 count = count + 1
@@ -188,6 +193,7 @@ class ViewController: UIViewController {
         return space
     }
     func resetDraw(){
+        
         let rsDraw = self.view.subviews
         for ball in rsDraw {
             
